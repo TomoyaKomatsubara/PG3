@@ -1,74 +1,60 @@
 #include<stdio.h>
 
+
+//引数firstとsecondを比較し、小さいほうを返すType型
 template<typename Type>
-Type min(Type a,Type b)
+Type min(Type first,Type second)
 {
-	if (a <= b)
+	if (first <= second)
 	{
-		return a;
+		return first;
 	}
 	else 
 	{
-		return b;
+		return second;
 	}
 }
 
-template<>
-char min(char a, char b)
+template<>//template解除
+char min(char first, char second)//char型の時数字以外はだめだよと描画する
 {
-	printf("���������āI�I�I\n");
+	printf("数字以外は代入できません\n\n");
 	return 0;
 }
-
-//char min<char>(int a, char b)
-//{
-//	return 99999999;
-//}
-
-
-
-//template <>
-//char min<char>(char a, char b)
-//{
-//	printf("�����ȊO�͑���ł��܂���");
-//	return 0;
-//}
-
 
 
 
 
 int main()
 {
-	printf("harahetta��������");
-
-	float minimum = 1.14;
+	//intとintの比較
+	int minimum = 1;//
 	int maxmum = 10;
-	float result;
-	result = min<float>(minimum, maxmum);
-
-	printf("%f\n\n", result);
-
-	double a = 15.0f;
-	int b = 9;
-	float c;
-	c = min<float>(a,b);
-
-	printf("%f\n\n", c);
+	int result;
+	result = min<int>(minimum, maxmum);//
+	printf("%d\n\n", result);
 
 
 
+	//floatとfloatの比較
+	float minimumf = 15.0f;
+	float maxmumf = 90.0f;
+	float resultf;
+	resultf = min<float>(minimumf,maxmumf);
+	printf("%f\n\n", resultf);
 
 
-	char x = 'k';
-	char v = 'k';
-	//char z;
-	min(x, v);
+	//doubleとdoubleの比較
+	double minimumlf = 8.0f;//関数名について、longFloatだからlf
+	double maxmumlf = 100.0f;
+	double resultlf;
+	resultlf = min<double>(minimumlf, maxmumlf);
+	printf("%lf\n\n", resultlf);
 
-	printf("�͂�ւ���");
-
-	/*printf("%d\n\n", z);*/
-
+	//char型の召喚
+	char firstChar = 'k';
+	char secoundChar = 'k';
+	min(firstChar, secoundChar);//ここでchar型を入れています
 
 	return 0;
 
