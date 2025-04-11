@@ -6,9 +6,6 @@ int main()
 {
 	
 
-	printf("ハロー");
-
-
 	return 0;
 
 }
