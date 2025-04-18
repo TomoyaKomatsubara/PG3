@@ -1,61 +1,153 @@
 #include<stdio.h>
 
-
-//引数firstとsecondを比較し、小さいほうを返すType型
-template<typename Type>
-Type min(Type first,Type second)
+int Recursive(int workingTime, int hourlyWage)
 {
-	if (first <= second)
+	//printf("働いた時間%d,初期の時間給%d", workingTime, hourlyWage);
+
+	/*if (workingTime <= 1)
 	{
-		return first;
+		return (100);
 	}
-	else 
+*/
+	//int total = 0;
+	
+	if (workingTime <= 0)
 	{
-		return second;
+		printf("正しい労働時間を入力してください\n\n");
+		return 0;
 	}
+
+
+	if (workingTime <= 1)
+	{
+		return (hourlyWage);
+	}
+	return hourlyWage + Recursive(workingTime - 1, hourlyWage * 2 - 50);
 }
 
-template<>//template解除
-char min(char first, char second)//char型の時数字以外はだめだよと描画する
+int Normal(int workingTime, int hourlyWage)
 {
-	printf("数字以外は代入できません\n\n");
-	return 0;
-}
+	int totalWage = 0;
 
+	if (workingTime <= 1)
+	{
+		return (1);
+	}
+	totalWage += hourlyWage;
+	return Recursive(workingTime - 1, hourlyWage);
+}
 
 
 
 int main()
 {
-	//intとintの比較
-	int minimum = 1;//
-	int maxmum = 10;
-	int result;
-	result = min<int>(minimum, maxmum);//
-	printf("%d\n\n", result);
+	
+	bool mainOpen = 1;
+	while (mainOpen)
+	{
 
 
+		bool Initial = 1;
+		bool programOpen = 0;
+		bool kara = 0;
+		while (kara)
+		{
+			Initial = true;
+			programOpen = false;
+			kara = false;
 
-	//floatとfloatの比較
-	float minimumf = 15.0f;
-	float maxmumf = 90.0f;
-	float resultf;
-	resultf = min<float>(minimumf,maxmumf);
-	printf("%f\n\n", resultf);
+		}
+		while (Initial)
+		{
+			printf("1を押して次へ");
+			int selectA = 0;
+			scanf_s("%d", &selectA);
+			if (selectA == 1)
+			{
+				Initial = false;
+				programOpen = true;
+			}
+			else
+			{
+				Initial = false;
+				programOpen = false;
+				kara = true;
+			}
+		}
+
+		while (programOpen)
+		{
 
 
-	//doubleとdoubleの比較
-	double minimumlf = 8.0f;//関数名について、longFloatだからlf
-	double maxmumlf = 100.0f;
-	double resultlf;
-	resultlf = min<double>(minimumlf, maxmumlf);
-	printf("%lf\n\n", resultlf);
+			int workingTime = 10;
+			int workingType = 0;
+			int basedHourlyWage = 0;
 
-	//char型の召喚
-	char firstChar = 'k';
-	char secoundChar = 'k';
-	min(firstChar, secoundChar);//ここでchar型を入れています
+			int totalWage = 0;
+			getchar();
+			printf("　働き方を選んでください 1 : 通常   2 :再帰的 \n\n");
+			
+			scanf_s("%d", &workingType);
+			
+			
+			if (workingType != 1 && workingType != 2)
+			{
+				printf("　正しい働き方を入力してください\n\n");
+			}
+			else if (workingType == 1)
+			{
+				basedHourlyWage = 1072;
+			}
+			else if (workingType == 2)//初期の賃金の決定
+			{
+				basedHourlyWage = 100;
+			}
 
-	return 0;
+
+			getchar();
+			printf("　働いた時間を書いてください\n\n");
+			scanf_s("%d", &workingTime);
+
+			if (workingType == 2)
+			{
+				totalWage = Recursive(workingTime, basedHourlyWage);
+			} else if (workingType == 1)
+			{
+				totalWage = Normal(workingTime, basedHourlyWage);
+			}
+
+
+			printf("合計の支給額%d", totalWage);
+
+			printf("やめる場合は0を押してプログラム終了\n 続ける場合は1　\n\n");
+			bool select = 0;
+			scanf_s(" %c ", &select);
+			/*if (select != 'Q' || select != 'N')
+			{
+				printf("強制終了\n\n");
+				mainOpen = false;
+			}*/
+			if (select == 0)
+			{
+				printf("プログラムを終了します\n\n");
+				mainOpen = false;
+			}
+			else if (select == 1)
+			{
+				Initial = true;
+				programOpen = false;
+			}
+			else
+			{
+				printf("プログラムを終了します\n\n");
+				mainOpen = true;
+			}
+
+		}
+
+
+	}
+
+
 
 }
