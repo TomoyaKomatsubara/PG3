@@ -2,13 +2,33 @@
 
 
 
+//int main()
+//{
+//	
+//
+//	printf("main = %p\n",main);
+//
+//
+//
+//	return 0;
+//
+//}
+
+void PrintHelloWorld()
+{
+	printf("HelloWorld\n");
+}
+
 int main()
 {
-	
+	void(*pfunc)();
 
-	printf("ハロー");
-
+	pfunc = PrintHelloWorld;
+	printf("PrintHelloWorldのアドレス = %p\n", PrintHelloWorld);
+	printf("pfuncの内容 = %p\n", *pfunc);
+	pfunc();
 
 	return 0;
-
 }
+
+
