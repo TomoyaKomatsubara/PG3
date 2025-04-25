@@ -6,7 +6,7 @@ typedef void (*PFunc)(int*);
                     //受け取るデータ(保持するデータ)
 
 
-
+//0を丁、1を半として扱い、丁半を当てるゲーム
 
 void PrintChouHann(int x)
 {
@@ -33,7 +33,6 @@ void PrintWinOr(int x, int y)
 void DisplayResult(int* s)
 {
 	printf("%d秒間待ってやる…\n\n",*s);
-
 }
 
 void SetTimeOut(PFunc p, int second)//関数が入っているから、
@@ -41,9 +40,6 @@ void SetTimeOut(PFunc p, int second)//関数が入っているから、
 {
 	p(&second);
 	Sleep(second * 1000);
-
-	
-
 }
 
 
@@ -61,7 +57,7 @@ int main()
 	
 
 
-	printf("丁半どっちにかける？\n\n");
+	printf("丁半どっちにかける？\n0で丁選択　　1で半選択\n");
 	int selection = -1;
 	scanf_s("%d", &selection);
 	printf("あなたは\n");
