@@ -6,6 +6,8 @@ typedef void (*PFunc)(int*);
                     //受け取るデータ(保持するデータ)
 
 
+
+
 void PrintChouHann(int x)
 {
 	if (x == 0)
