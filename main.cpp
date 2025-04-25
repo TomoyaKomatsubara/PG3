@@ -31,9 +31,10 @@ int main()
 	int l = 114;
 	int h = 514;
 
-	int (*calc)(int, int);
+	int (*calc)(int, int);//戻り値型(*関数のポインタ型の名前)(引数,引数)
+	//このままだとただの箱
 
-	calc = Add;
+	calc = Add;//関数のポイント型calcに関数Addを入れる
 	printf("%d\n", calc(l, h));
 
 	calc = Subtract;
@@ -41,6 +42,8 @@ int main()
 
 	return 0;
 
+
+	//int (*newtype)(int,int);
 }
 
 
