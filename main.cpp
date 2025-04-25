@@ -92,7 +92,7 @@ int main()
 
 	//三秒間待ってやる
 
-	SetTimeOut(p, 3);//pの引数情報が入る
+	SetTimeOut(p, 3);//pの引数情報が入る  
 
 
 
