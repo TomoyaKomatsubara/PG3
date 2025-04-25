@@ -1,49 +1,57 @@
 #include<stdio.h>
-
-int Add(const int a, const int b)//	足し算の関数
-{
-	int result = a + b;
-	return result;
-}
-
-int Subtract(const int a, const int b)
-{
-	int result = a - b;
-	return result;
-}
-
-//void PrintHelloWorld()
-//{
-//	printf("HelloWorld\n");
-//}
+#include<stdlib.h>
 
 int main()
 {
-	/*void(*pfunc)();
+	int destiny = -1;
 
-	pfunc = PrintHelloWorld;
-	printf("PrintHelloWorldのアドレス = %p\n", PrintHelloWorld);
-	printf("pfuncの内容 = %p\n", *pfunc);
-	pfunc();
+	destiny = rand() % 2;
 
-	return 0;*/
 
-	int l = 114;
-	int h = 514;
+	printf("丁半どっちにかける？\n\n");
+	int selection = -1;
+	scanf_s("%d", &selection);
+	printf("あなたは\n");
+	if (selection == 0)
+	{
+		printf("丁");
+	}
+	else
+	{
+		printf("半");
+	}
+	printf("にかけた！！\n\n");
 
-	int (*calc)(int, int);//戻り値型(*関数のポインタ型の名前)(引数,引数)
-	//このままだとただの箱
+	//三秒間待ってやる
 
-	calc = Add;//関数のポイント型calcに関数Addを入れる
-	printf("%d\n", calc(l, h));
 
-	calc = Subtract;
-	printf("%d\n", calc(l, h));
+	//運命の答え合わせ
+
+	if (destiny == 0)
+	{
+		printf("答え:丁\n");
+	} else
+	{
+
+		printf("答え:半\n");
+	}
+
+	if (destiny == selection)
+	{
+		printf("あなたの価値！！\n\n");
+	}
+	else
+	{
+		printf("あなたの負け…\n\n");
+	}
+
+
+
+
+
+
 
 	return 0;
-
-
-	//int (*newtype)(int,int);
 }
 
 
