@@ -3,16 +3,16 @@
 
 void Enemy::EnemyApproachFunc()//接近
 {
-	printf("Enemy approach!\n\n");
+	printf("Enemy 接近!\n\n");
 };
 
 void Enemy::EnemyAttackFunc()//射撃
 {
-	printf("Enemy's Attack!\n\n");
+	printf("Enemy's 射撃!\n\n");
 };
 void Enemy::EnemyWithdrawalFunc()//退避
 {
-	printf("Enemy run away!\n\n");
+	printf("Enemy 離脱!\n\n");
 };
 
 
