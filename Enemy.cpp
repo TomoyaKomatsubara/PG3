@@ -1,23 +1,23 @@
 #include "Enemy.h"
 #include<stdio.h>
 
-void Enemy::EnemyApproachFunc()
+void Enemy::EnemyApproachFunc()//接近
 {
 	printf("Enemy approach!\n\n");
 };
 
-void Enemy::EnemyAttackFunc()
+void Enemy::EnemyAttackFunc()//射撃
 {
 	printf("Enemy's Attack!\n\n");
 };
-void Enemy::EnemyWithdrawalFunc()
+void Enemy::EnemyWithdrawalFunc()//退避
 {
 	printf("Enemy run away!\n\n");
 };
 
 
 
-void (Enemy::* Enemy::EnemyPointerFunc[])()
+void (Enemy::* Enemy::EnemyPointerFunc[])()//ポインタ型関数のテーブル(実体)
 = {
  &Enemy::EnemyApproachFunc,//0
  &Enemy::EnemyAttackFunc,//1

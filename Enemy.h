@@ -9,6 +9,6 @@ public:
 
 
 private:
-	static void (Enemy::* EnemyPointerFunc[])();
+	static void (Enemy::* EnemyPointerFunc[])();//ポインタ型関数のテーブル(宣言)
 };
 
