@@ -12,12 +12,12 @@ Book::~Book()
 
 }
 
-void Book::Read(const char* name)
+void Book::Read(int a)
 {
-	printf("%s を読んだ！\n\n",name);
+	printf("読んだ！\n\n");
 }
 
-void Book::Fave(const char* name)
+void Book::Fave(int a)
 {
-	printf("%s 気に入った！\n\n",name);
+	printf("気に入った！\n\n");
 }

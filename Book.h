@@ -4,8 +4,8 @@ class Book
 public:
 	Book();
 	virtual ~Book();
-	virtual void Read(const char* name);
-	virtual void Fave(const char *name);
+	virtual void Read(int a);
+	virtual void Fave(int a);
 protected:
 	const char* name;
 };

@@ -3,7 +3,7 @@
 
 Naruse::Naruse()
 {
-
+	name = "Naruse";
 }
 
 Naruse::~Naruse()
@@ -11,14 +11,14 @@ Naruse::~Naruse()
 
 }
 
-void Naruse::Read()
+void Naruse::Read(int a)
 {
-	printf("成瀬シリーズを読んだ！\n\n");
+	printf("成瀬シリーズ%d巻目を読んだ！\n\n",a);
 }
 
-void Naruse::Fave()
+void Naruse::Fave(int a)
 {
-	printf("成瀬シリーズを気に入った！\n\n");
+	printf("成瀬シリーズ%d巻目を気に入った！\n\n",a);
 }
 
 
