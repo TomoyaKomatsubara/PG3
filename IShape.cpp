@@ -1,6 +1,6 @@
 #include "IShape.h"
 
-IShape::IShape()
+IShape::IShape(float a, float b)
 {
 
 
@@ -13,13 +13,13 @@ IShape::~IShape()
 }
 
 
-void IShape::Size(float a,float b)
+void IShape::Size()
 {
 
 
 }
 
-void IShape::Draw(float a, float b)
+void IShape::Draw()
 {
 
 

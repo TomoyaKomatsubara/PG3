@@ -2,15 +2,15 @@
 class IShape
 {
 public:
-	IShape();
+	IShape(float a,float b);
 	virtual ~IShape();
 	
 	//= 0を付けることで、プラットフォーム化
 	// (実装を派生クラスに強要する関数)
 	//面積を求める関数
-	virtual void Size(float a,float b) = 0;
+	virtual void Size() = 0;
 	//関数Sizeで求めた値を
-	virtual void Draw(float a,float b) = 0;
+	virtual void Draw() = 0;
 protected:
 	float size = 0;
 };

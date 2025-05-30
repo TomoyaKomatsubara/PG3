@@ -2,12 +2,16 @@
 #pragma once
 class Circle:public IShape
 {
-	Circle();
+public:
+	Circle(float a, float b);
 	~Circle();
-	void Size(float a, float b) override;
-	void Draw(float a, float b) override;
+	void Size() override;
+	void Draw() override;
 	float size = 0;
 
+	//Circle独自の変数
+	float radius1 = 0;
+	float radius2 = 0;
 	//float pi = 3.141592;
 };
 

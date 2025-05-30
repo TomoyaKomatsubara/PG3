@@ -4,7 +4,9 @@
 
 int main(void)
 {
-	Circle* ball1 = new Circle;
+
+	IShape* ball1 = new Circle(1.0f,2.0f);//型は派生元
+
 
 
 
