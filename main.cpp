@@ -6,7 +6,8 @@ int main(void)
 {
 
 	IShape* ball1 = new Circle(1.0f,2.0f);//型は派生元
-
+	ball1->Size();
+	ball1->Draw();
 
 
 

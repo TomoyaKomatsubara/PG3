@@ -1,10 +1,10 @@
 #include "IShape.h"
 
-IShape::IShape(float a, float b)
-{
-
-
-}
+//IShape::IShape(float a, float b)
+//{
+//
+//
+//}
 
 IShape::~IShape()
 {

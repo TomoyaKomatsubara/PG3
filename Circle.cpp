@@ -9,7 +9,7 @@
 Circle::Circle(float a, float b)
 {
 	radius1 = a;
-	radius2 = a;
+	radius2 = b;
 }
 
 Circle::~Circle()
@@ -20,7 +20,7 @@ Circle::~Circle()
 
 void Circle::Size()//引数は両方半径
 {
-	size = radius1 * radius2 * static_cast<float>(M_PI);
+	size = radius1 * (radius2 * static_cast<float>(M_PI));
 
 }
 void Circle::Draw()//上記と同様	

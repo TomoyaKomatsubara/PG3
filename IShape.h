@@ -2,7 +2,7 @@
 class IShape
 {
 public:
-	IShape(float a,float b);
+	//IShape(float a,float b);//基底クラスではコンストラクタは宣言しなくてもよい
 	virtual ~IShape();
 	
 	//= 0を付けることで、プラットフォーム化
