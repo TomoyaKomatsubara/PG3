@@ -8,6 +8,6 @@ class Circle:public IShape
 	void Draw(float a, float b) override;
 	float size = 0;
 
-	float pi = 3.141592;
+	//float pi = 3.141592;
 };
 
