@@ -7,6 +7,6 @@ public:
 	~Naruse();
 	void Read(int a) override;
 	void Fave(int a) override;
-protected:
+
 };
 

@@ -7,12 +7,12 @@ int main()
 {
 	Book* Naruse[3] = {};
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 3; i++)
 	{
 		Naruse[i] = new Book;
 	}
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 3; i++)
 	{
 		Naruse[i]->Read(i);
 		Naruse[i]->Fave(i);

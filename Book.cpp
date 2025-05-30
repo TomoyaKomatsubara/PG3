@@ -14,10 +14,10 @@ Book::~Book()
 
 void Book::Read(int a)
 {
-	printf("読んだ！\n\n");
+	printf("%d巻を読んだ！\n\n",a+1);
 }
 
 void Book::Fave(int a)
 {
-	printf("気に入った！\n\n");
+	printf("%d巻を気に入った！\n\n",a+1);
 }
