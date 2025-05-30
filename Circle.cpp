@@ -25,6 +25,6 @@ void Circle::Size()//引数は両方半径
 }
 void Circle::Draw()//上記と同様	
 {
-	printf("円の面積: %f", size);
+	printf("円の面積: %fcm\n\n", size);
 
 }

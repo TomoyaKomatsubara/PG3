@@ -11,7 +11,7 @@ public:
 	virtual void Size() = 0;
 	//関数Sizeで求めた値を
 	virtual void Draw() = 0;
-protected:
+protected://派生クラスへ継承
 	float size = 0;
 };
 

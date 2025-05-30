@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include"IShape.h"
 #include"Circle.h"
+#include"Rectangle.h"
 
 int main(void)
 {
@@ -11,6 +12,9 @@ int main(void)
 
 
 
+	IShape* shikaku = new Rectangle(10.0f, 3.0f);
+	shikaku->Size();
+	shikaku->Draw();
 
 	return 0;
 }

@@ -9,6 +9,7 @@ public:
 	void Draw() override;
 	float size = 0;
 
+private:
 	//Circle独自の変数
 	float radius1 = 0;
 	float radius2 = 0;
