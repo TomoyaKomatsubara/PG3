@@ -1,10 +1,8 @@
 #define _USE_MATH_DEFINES
 #include "Circle.h"
 #include<math.h>
-#include<numbers>
+//#include<numbers>
 #include<stdio.h>
-
-
 
 Circle::Circle(float a, float b)
 {
@@ -14,7 +12,6 @@ Circle::Circle(float a, float b)
 
 Circle::~Circle()
 {
-
 
 }
 
