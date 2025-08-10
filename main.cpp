@@ -1,39 +1,55 @@
-#include <stdio.h>
-#include <thread>
-#include <mutex>
-#include <condition_variable>
+#include <iostream>
+#include <string>
+#include <chrono>
 
-std::mutex mtx;
-std::condition_variable cv;
-int turn = 1; // 1→2→3 の順で実行
+class Test {
+public:
+    std::string data;
 
-void PrintT1() {
-    std::unique_lock<std::mutex> lock(mtx);
-    cv.wait(lock, [] { return turn == 1; }); // turnが1になるまで待つ
-    printf("     thread1     \n");
-    turn = 2;
-    cv.notify_all(); // 次のスレッドを起こす
-}
+    // 通常コンストラクタ
+    Test(size_t size, char ch) : data(size, ch) {}
 
-void PrintT2() {
-    std::unique_lock<std::mutex> lock(mtx);
-    cv.wait(lock, [] { return turn == 2; }); // turnが2になるまで待つ
-    printf("     thread2     \n");
-    turn = 3;
-    cv.notify_all();
-}
+    // コピーコンストラクタ
+    Test(const Test& other) : data(other.data) {
+        std::cout << "コピーコンストラクタ呼び出し\n";
+    }
 
-void PrintT3() {
-    std::unique_lock<std::mutex> lock(mtx);
-    cv.wait(lock, [] { return turn == 3; }); // turnが3になるまで待つ
-    printf("     thread3     \n");
-}
+    // ムーブコンストラクタ
+    Test(Test&& other) noexcept : data(std::move(other.data)) {
+        std::cout << "ムーブコンストラクタ呼び出し\n";
+    }
+};
 
 int main() {
-    std::thread th1(PrintT1);
-    th1.join();
-    std::thread th2(PrintT2);
-    th2.join();
-    std::thread th3(PrintT3);
-    th3.join();
+    using namespace std::chrono;
+
+    Test original(1000000, 'a');
+
+    std::cout << "5回Enterを押します。\n";
+
+    microseconds copy_time{ 0 };
+    microseconds move_time{ 0 };
+
+    for (int i = 0; i < 5; i++) {
+        std::cin.get();
+        if (i == 0) { // 1回目でコピー計測
+            auto start = steady_clock::now();
+            Test copy_test = original; // コピー
+            auto end = steady_clock::now();
+            copy_time = duration_cast<microseconds>(end - start);
+        }
+        if (i == 4) { // 5回目でムーブ計測
+            auto start = steady_clock::now();
+            Test move_test = std::move(original); // ムーブ
+            auto end = steady_clock::now();
+            move_time = duration_cast<microseconds>(end - start);
+        }
+    }
+
+    std::cout << "1000000文字を移動とコピーで比較しました。\n";
+    std::cout << "コピー: " << copy_time.count() << "μs\n";
+    std::cout << "移動: " << move_time.count() << "μs\n";
+
+    std::cout << "続行するには何かキーを押してください...\n";
+    std::cin.get();
 }
