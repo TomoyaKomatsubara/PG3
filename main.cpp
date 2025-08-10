@@ -23,32 +23,31 @@ public:
 int main() {
     using namespace std::chrono;
 
-    Test original(1000000, 'a');
-
-    std::cout << "5回Enterを押します。\n";
-
-    microseconds copy_time{ 0 };
-    microseconds move_time{ 0 };
-
+    // 5回Enter待ち
+    std::cout << "5回Enterを押すと計測します...\n";
     for (int i = 0; i < 5; i++) {
         std::cin.get();
-        if (i == 0) { // 1回目でコピー計測
-            auto start = steady_clock::now();
-            Test copy_test = original; // コピー
-            auto end = steady_clock::now();
-            copy_time = duration_cast<microseconds>(end - start);
-        }
-        if (i == 4) { // 5回目でムーブ計測
-            auto start = steady_clock::now();
-            Test move_test = std::move(original); // ムーブ
-            auto end = steady_clock::now();
-            move_time = duration_cast<microseconds>(end - start);
-        }
     }
 
+    // 元データ作成（100万文字）
+    Test original(1000000, 'a');
+
+    // コピー計測
+    auto start_copy = steady_clock::now();
+    Test copy_test = original; // コピー
+    auto end_copy = steady_clock::now();
+    auto copy_time = duration_cast<microseconds>(end_copy - start_copy).count();
+
+    // ムーブ計測
+    auto start_move = steady_clock::now();
+    Test move_test = std::move(original); // ムーブ
+    auto end_move = steady_clock::now();
+    auto move_time = duration_cast<microseconds>(end_move - start_move).count();
+
+    // 結果表示
     std::cout << "1000000文字を移動とコピーで比較しました。\n";
-    std::cout << "コピー: " << copy_time.count() << "μs\n";
-    std::cout << "移動: " << move_time.count() << "μs\n";
+    std::cout << "コピー: " << copy_time << "μs\n";
+    std::cout << "移動: " << move_time << "μs\n";
 
     std::cout << "続行するには何かキーを押してください...\n";
     std::cin.get();
