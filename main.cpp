@@ -31,10 +31,9 @@ void PrintT3() {
 
 int main() {
     std::thread th1(PrintT1);
-    std::thread th2(PrintT2);
-    std::thread th3(PrintT3);
-
     th1.join();
+    std::thread th2(PrintT2);
     th2.join();
+    std::thread th3(PrintT3);
     th3.join();
 }
